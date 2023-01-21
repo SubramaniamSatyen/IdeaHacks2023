@@ -39,8 +39,34 @@
 .progressBox{
   display: flex;
   align-self: flex-end;
-  background-color: #99ff00;
+  /* background-color: #99ff00; */
+  background-image: linear-gradient(to top right, #99ff00, #b2e960);
   height: 5vh;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2vh;
+  border-radius: 2px;
+
+}
+
+.repetitionBox{
+  display: flex;
+  align-self: flex-end;
+  /* background-color: #00aaff; */
+  background-image: linear-gradient(to top right, #00aaff, #5cbceb);
+  height: 12vh;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2vh;
+  border-radius: 2px;
+}
+
+.emptyRepBox{
+  display: flex;
+  align-self: flex-end;
+  height: 10vh;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -72,6 +98,41 @@
 .App-link {
   color: #61dafb;
 }
+
+h2{
+  margin-bottom: 2vh;
+}
+
+.scoreBox{
+  width: 90%;
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: linear-gradient(to top right, #334463, #3c5581);
+  border-radius: 20px;
+  font-size: calc(40px + 2vmin);
+  margin-bottom: 5vh;
+}
+
+.userBox{
+  width: 90%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #131A26;
+  /* background-image: linear-gradient(to top right, #334463, #3c5581); */
+  border-radius: 20px;
+  font-size: calc(30px + 2vmin);
+  margin-bottom: 5vh;
+
+}
+
 
 @keyframes App-logo-spin {
   from {

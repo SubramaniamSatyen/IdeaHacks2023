@@ -2,7 +2,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import { db } from "./firebase";
 import { onValue, ref } from "firebase/database";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 
 const device_reserved = "_device_reading"
@@ -31,14 +31,15 @@ function Highscores() {
 
 
       <div className="scores">
-        {scores.length > 0 ? scores.map((score_record) => (
-          (score_record.length >= 2 && score_record[0] != device_reserved ?
+        {scores.length > 0 ? scores.filter((score_record) => (score_record.length >= 2 && score_record[0] != device_reserved))
+          .sort((sc1, sc2) => {
+            return sc2[1] - sc1[1];
+          })
+          .map((score_record) => 
           <div className="score" key={score_record[0]}>
             <div className="text">{score_record[0]}: {score_record[1]}</div>
           </div>
-          : 
-          "")
-        )) : (
+        ) : (
           <p>There are currently no scores</p>
         )}
       </div>
