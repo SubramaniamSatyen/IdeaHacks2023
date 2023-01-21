@@ -1,23 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [scores, setScores] = useState([{_id: 1, value: 10}]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Highscores: </h1>
+
+      <div className="scores">
+        {scores.length > 0 ? scores.map(score => (
+          <div className={
+            "score" + (score.complete ? " is-complete" : "")
+          } key={score._id}>
+            <div className="text">{score.value}</div>
+          </div>
+        )) : (
+          <p>There are currently no scores</p>
+        )}
+      </div>
     </div>
   );
 }
