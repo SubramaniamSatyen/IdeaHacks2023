@@ -16,9 +16,9 @@ function App() {
     return onValue(query, (snapshot) => {
       const data = snapshot.val();
 
-      console.log(data)
       if (snapshot.exists()) {
         setScores(Object.entries(data)) 
+        console.log(Object.entries(data))
       }
     });
   }, []);
@@ -29,10 +29,13 @@ function App() {
       <h1>Highscores: </h1>
 
       <div className="scores">
-        {scores.length > 0 ? scores.map(([id, value]) => (
-          <div className="score" key={id}>
-            <div className="text">{id}: {value}</div>
+        {scores.length > 0 ? scores.map((score_record) => (
+          (score_record.length >= 2 ?
+          <div className="score" key={score_record[0]}>
+            <div className="text">{score_record[0]}: {score_record[1]}</div>
           </div>
+          : 
+          "")
         )) : (
           <p>There are currently no scores</p>
         )}
