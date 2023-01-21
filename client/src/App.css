@@ -13,6 +13,51 @@
   }
 }
 
+.columnWrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.column{
+  width: 33%;
+  height: 85vh;
+  text-align: center;
+}
+
+.fillSpace{
+  display: flex;
+  flex-direction: column;
+}
+
+.header{
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.progressBox{
+  display: flex;
+  align-self: flex-end;
+  background-color: #99ff00;
+  height: 5vh;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2vh;
+}
+
+
+.emptyBox{
+  display: flex;
+  align-self: flex-end;
+  height: 5vh;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2vh;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
