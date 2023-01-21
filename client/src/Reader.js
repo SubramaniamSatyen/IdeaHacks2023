@@ -1,13 +1,14 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import { db } from "./firebase";
-import { onValue, ref } from "firebase/database";
-import { Link } from "react-router-dom";
+import { onValue, ref, set } from "firebase/database";
+import { Link, useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
+import { useAuth } from './Auth';
+
 
 const total_strength_bars = 12
 const total_rep_bars = 6;
-const user = "BOB"
 
 function Reader() {
   const [strengthReading, setStrength] = useState(<div className="progressBox"/>);
@@ -15,7 +16,9 @@ function Reader() {
 
   const [score, setScore] = useState(0);
   const [repReading, setRep] = useState(<div className="repetitionBox"/>);
-  const [emptyRep, setRepEmpty] = useState(new Array((total_rep_bars - 1) > 0 ? total_rep_bars - 1 : 0).fill('').map((_, index) => <div className="emptyBox"/>));
+  const [emptyRep, setRepEmpty] = useState(new Array((total_rep_bars - 1) > 0 ? total_rep_bars - 1 : 0).fill('').map((_, index) => <div className="emptyRepBox"/>));
+  const { user, setUser } = useAuth();
+  const navigate = useNavigate();
 
 
   useEffect(() => {
@@ -41,10 +44,24 @@ function Reader() {
     });
   }, []);
 
+  const logout = () => {
+    set(ref(db, '/_device_user'), "_no_user")
+    setUser("_no_user")
+    navigate("/scores");
+  }
+
+  console.log(user)
   return (
     <div className="App">
       <div className="header">
-        <Button variant="contained" component={Link} to="/scores">Highscores</Button>
+        <div className="buttonWrapper">
+          {user == "_no_user" ?
+          <Button variant="contained" component={Link} to="/signin">Sign In</Button>
+          :
+          <Button variant="contained" onClick={logout}>Log Out</Button>
+          }
+        </div>
+        <div className="buttonWrapper">{user == "_no_user" ? "" : <Button variant="contained" component={Link} to="/scores">Highscores</Button>}</div>
       </div>
       <div className="columnWrapper">
         <div className="column">
