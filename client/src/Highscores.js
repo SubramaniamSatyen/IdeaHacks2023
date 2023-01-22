@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
 import { useAuth } from './Auth';
 
-const device_reserved = ["_device_reading", "_device_user"]
+const device_reserved = ["_device_reading", "_device_user", "_device_hr", "_device_hr_reading"]
 
 function Highscores() {
   const [scores, setScores] = useState([{_id: 1, value: 10}]);
@@ -43,9 +43,9 @@ function Highscores() {
           <Button variant="contained" onClick={logout}>Log Out</Button>
           }
         </div>
-        <div className="buttonWrapper">{user == "_no_user" ? "" : <Button variant="contained" component={Link} to="/reader">Muscle Readings</Button>}</div>
+        <div className="buttonWrapper">{user == "_no_user" ? "" : <Button variant="contained" component={Link} to="/reader">Dashboard</Button>}</div>
       </div>
-      <h1>Highscores: </h1>
+      <h1>Leaderboard: </h1>
 
 
       <div className="scores">

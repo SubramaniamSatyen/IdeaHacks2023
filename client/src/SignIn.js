@@ -33,7 +33,7 @@ function SignIn() {
         <div className="App">
             <div className="header">
                 <div className="buttonWrapper">
-            <Button variant="contained" component={Link} to="/scores">Highscores</Button>
+            <Button variant="contained" component={Link} to="/scores">Leaderboard</Button>
             </div>
         </div>
         <div className="Login">

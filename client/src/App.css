@@ -19,7 +19,7 @@
 }
 
 .column{
-  width: 33%;
+  width: 50%;
   height: 85vh;
   text-align: center;
 }
@@ -119,6 +119,20 @@ h2{
   border-radius: 15px;
 }
 
+.hrBox{
+  width: 90%;
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: linear-gradient(to top right, #63334a, #904167);
+  border-radius: 20px;
+  font-size: calc(40px + 2vmin);
+  margin-bottom: 5vh;
+}
+
 .scoreBox{
   width: 90%;
   height: 30vh;
@@ -127,14 +141,19 @@ h2{
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  background-image: linear-gradient(to top right, #334463, #3c5581);
+  background-image: linear-gradient(to top right, #251d9e, #4c43cb);
   border-radius: 20px;
   font-size: calc(40px + 2vmin);
   margin-bottom: 5vh;
 }
 
+.userRow{
+  flex-direction: row;
+  display: flex;
+  align-items: center;}
+
 .userBox{
-  width: 90%;
+  width: 60%;
   height: 10vh;
   display: flex;
   align-items: center;
@@ -146,7 +165,21 @@ h2{
   border-radius: 20px;
   font-size: calc(30px + 2vmin);
   margin-bottom: 5vh;
+  margin-top: 5vh;
+}
 
+.heartBox{
+  width: 20%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  background-color: #131A26;
+  /* background-image: linear-gradient(to top right, #334463, #3c5581); */
+  border-radius: 20px;
+  margin-bottom: 5vh;
+  margin-top: 5vh;
 }
 
 
